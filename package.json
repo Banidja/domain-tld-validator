@@ -2,10 +2,10 @@
   "name": "domain-tld-validator",
   "version": "1.0.0",
   "description": "A validator for domain TLDs.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "test": "jest",
+    "test": "tsc -p tsconfig.test.json && jest",
     "update-tlds": "ts-node src/update-tlds.ts"
   },
   "repository": {
