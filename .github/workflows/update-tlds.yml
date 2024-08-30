@@ -5,6 +5,9 @@ on:
     - cron: "0 0 1 * *"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   update-tlds:
     runs-on: ubuntu-latest
@@ -38,11 +41,11 @@ jobs:
       - name: Commit and push updated TLDs
         run: |
           if [ -f dist/tlds.json ]; then
-            git add dist/tlds.json
-            git commit -m "Update TLDs" || echo "No changes to commit"
-            git push
-          else
-            echo "File dist/tlds.json does not exist."
-          fi
+             git add dist/tlds.json
+             git commit -m "Update TLDs" || echo "No changes to commit"
+             git push
+           else
+             echo "File dist/tlds.json does not exist."
+           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
