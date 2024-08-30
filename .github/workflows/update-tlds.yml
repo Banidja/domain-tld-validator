@@ -37,12 +37,12 @@ jobs:
 
       - name: Commit and push updated TLDs
         run: |
-          if [ -f dist/tlds.json ]; then
-             git add dist/tlds.json
-             git commit -m "Update TLDs" || echo "No changes to commit"
-             git push
-           else
-             echo "File dist/tlds.json does not exist."
-           fi
+          if [ -f src/tlds.json ]; then
+            git add src/tlds.json
+            git commit -m "Update TLDs" || echo "No changes to commit"
+            git push
+          else
+            echo "File src/tlds.json does not exist."
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
