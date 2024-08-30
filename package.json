@@ -1,0 +1,29 @@
+{
+  "name": "domain-tld-validator",
+  "version": "1.0.0",
+  "description": "A validator for domain TLDs.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "update-tlds": "ts-node src/update-tlds.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/domain-tld-validator.git"
+  },
+  "keywords": [
+    "domain",
+    "tld",
+    "validator"
+  ],
+  "author": "Branislav Jaksic",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^22.5.1",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.5.4"
+  }
+}
