@@ -2,7 +2,8 @@ name: Update TLDs
 
 on:
   schedule:
-    - cron: "0 0 1 * *" # Runs at midnight on the first day of every month
+    - cron: "0 0 1 * *"
+  workflow_dispatch:
 
 jobs:
   update-tlds:
@@ -23,12 +24,15 @@ jobs:
       - name: Update TLDs
         run: npm run update-tlds
 
+      - name: Configure Git
+        run: |
+          git config --local user.email "branislavjaksic3@gmail.com"
+          git config --local user.name "Branislav Jaksic"
+
       - name: Commit and push updated TLDs
         run: |
-          git config --local user.email "your-email@example.com"
-          git config --local user.name "Your Name"
           git add dist/tlds.json
-          git commit -m "Update TLDs"
+          git commit -m "Update TLDs" || echo "No changes to commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
