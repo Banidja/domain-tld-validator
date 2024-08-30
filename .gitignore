@@ -2,9 +2,7 @@
 node_modules/
 
 # Build output
-dist/*
-!dist/tlds.json
-
+dist/
 
 # IDE/editor configurations
 .vscode/
