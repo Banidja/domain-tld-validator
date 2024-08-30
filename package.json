@@ -1,6 +1,6 @@
 {
   "name": "domain-tld-validator",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A validator for domain TLDs.",
   "main": "dist/index.js",
   "scripts": {
