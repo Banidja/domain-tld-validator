@@ -27,9 +27,6 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: List files in dist directory
-        run: ls -la dist
-
       - name: Update TLDs
         run: npm run update-tlds
 
