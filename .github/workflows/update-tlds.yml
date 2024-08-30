@@ -21,6 +21,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Build project
+        run: npm run build
+
       - name: List files in dist directory
         run: ls -la dist
 
@@ -29,13 +32,17 @@ jobs:
 
       - name: Configure Git
         run: |
-          git config --local user.email "branislavjaksic3@gmail.com"
-          git config --local user.name "Branislav Jaksic"
+          git config --global user.email "branislavjaksic3@gmail.com"
+          git config --global user.name "Branislav Jaksic"
 
       - name: Commit and push updated TLDs
         run: |
-          git add dist/tlds.json
-          git commit -m "Update TLDs" || echo "No changes to commit"
-          git push
+          if [ -f dist/tlds.json ]; then
+            git add dist/tlds.json
+            git commit -m "Update TLDs" || echo "No changes to commit"
+            git push
+          else
+            echo "File dist/tlds.json does not exist."
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

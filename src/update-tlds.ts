@@ -1,6 +1,7 @@
 import * as fs from "fs";
 import { IncomingMessage } from "http";
 import * as https from "https";
+import * as path from "path";
 
 const TLD_URL = "https://data.iana.org/TLD/tlds-alpha-by-domain.txt";
 
@@ -20,8 +21,8 @@ https
         )
         .map((tld: string): string => tld.trim());
 
-      // Write the array to a JSON file
-      fs.writeFileSync("./src/tlds.json", JSON.stringify(tlds, null, 2));
+      const filePath = path.join(__dirname, "../dist/tlds.json");
+      fs.writeFileSync(filePath, JSON.stringify(tlds, null, 2));
       console.log("TLD list updated successfully.");
     });
   })
