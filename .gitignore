@@ -4,6 +4,11 @@ node_modules/
 # Build output
 dist/
 
+#Test output
+test/*.js
+test/*.js.map
+test/*.d.ts
+
 # IDE/editor configurations
 .vscode/
 .idea/
