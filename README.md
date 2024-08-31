@@ -15,7 +15,7 @@ import { validateDomain } from "domain-tld-validator";
 
 console.log(validateDomain("google.com")); // true
 console.log(validateDomain("sub.google.com")); // true
-console.log(validateDomain("my-domain.com")); // true
+console.log(validateDomain("go-ogle.com")); // true
 
 console.log(validateDomain("goo gle.com")); // false
 console.log(validateDomain("google.com.")); // false
