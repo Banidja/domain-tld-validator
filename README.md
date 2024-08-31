@@ -1,6 +1,6 @@
 # Domain TLD Validator
 
-A simple package to validate domain TLDs.
+This package provides a simple function to validate domain names based on general domain formatting rules and Top-Level Domain (TLD) verification. It checks whether a given domain is correctly formatted and contains a valid TLD.
 
 ## Installation
 
