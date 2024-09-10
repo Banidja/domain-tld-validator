@@ -1,11 +1,15 @@
 import tlds from "./tlds.json";
 
-export function validateDomain(domain: string): boolean {
+export function validateDomain(input: string): boolean {
   const MAX_DOMAIN_LENGTH = 253;
+
+  const protocolPattern = /^https?:\/\/|ftp:\/\/|\/\/|^www\./i;
+  const domain = input.replace(protocolPattern, "").split("/")[0];
+
   if (domain.length > MAX_DOMAIN_LENGTH) return false;
 
   const domainPattern =
-    /^(?:www\.)?[a-zA-Z0-9]+(-?[a-zA-Z0-9]+)*(\.[a-zA-Z0-9]+(-?[a-zA-Z0-9]+)*)*\.[a-zA-Z]{2,}$/;
+    /^[a-zA-Z0-9]+(-?[a-zA-Z0-9]+)*(\.[a-zA-Z0-9]+(-?[a-zA-Z0-9]+)*)*\.[a-zA-Z]{2,}$/;
 
   if (!domainPattern.test(domain)) return false;
 

@@ -74,4 +74,8 @@ describe("Domain Validator", () => {
   test("Domain starting with www", () => {
     expect(validateDomain("www.google.com")).toBe(true);
   });
+
+  test("Domain starting with https", () => {
+    expect(validateDomain("https://www.google.com")).toBe(true);
+  });
 });
