@@ -5,7 +5,7 @@ export function validateDomain(domain: string): boolean {
   if (domain.length > MAX_DOMAIN_LENGTH) return false;
 
   const domainPattern =
-    /^(?!www\.|http:\/\/|https:\/\/)[a-zA-Z0-9]+(-?[a-zA-Z0-9]+)*(\.[a-zA-Z0-9]+(-?[a-zA-Z0-9]+)*)*\.[a-zA-Z]{2,}$/;
+    /^(?:www\.)?[a-zA-Z0-9]+(-?[a-zA-Z0-9]+)*(\.[a-zA-Z0-9]+(-?[a-zA-Z0-9]+)*)*\.[a-zA-Z]{2,}$/;
 
   if (!domainPattern.test(domain)) return false;
 

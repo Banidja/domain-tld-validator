@@ -70,4 +70,8 @@ describe("Domain Validator", () => {
   test("Domain with a valid TLD", () => {
     expect(validateDomain("google.com")).toBe(true);
   });
+
+  test("Domain starting with www", () => {
+    expect(validateDomain("www.google.com")).toBe(true);
+  });
 });
