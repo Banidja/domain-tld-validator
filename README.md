@@ -16,8 +16,13 @@ import { validateDomain } from "domain-tld-validator";
 console.log(validateDomain("google.com")); // true
 console.log(validateDomain("sub.google.com")); // true
 console.log(validateDomain("go-ogle.com")); // true
+console.log(validateDomain("goo.gle.com")); // true
+console.log(validateDomain("correct-format-with-dashes-google.com")); // true
 
 console.log(validateDomain("goo gle.com")); // false
 console.log(validateDomain("google.com.")); // false
 console.log(validateDomain("google.whatever123")); // false
+console.log(validateDomain(".google.com")); // false
+console.log(validateDomain("google")); // false
+console.log(validateDomain(".com")); // false
 ```
